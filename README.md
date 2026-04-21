@@ -1,19 +1,40 @@
 # 🍽 Caravan Restaurant Management System
 
-## 📌 Project Description
-A full-stack web application built using Spring Boot to manage restaurant operations including menu management, order processing, and order tracking.
+![Java](https://img.shields.io/badge/Java-Backend-orange)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-Framework-green)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
+
+---
+
+## 📌 Project Overview
+
+A full-stack restaurant management system built using Spring Boot.  
+This application helps manage menu items, process customer orders, and track order status efficiently.
 
 ---
 
 ## 🚀 Features
 
-- 📋 Menu Management (Add, Edit, Delete items)
-- 🛒 Multi-item Order Processing
-- 📊 Order Details with item-wise breakdown
-- 🔄 Order Status Workflow (Pending → Preparing → Completed)
-- 🧩 Entity Relationships (One-to-Many, Many-to-One)
-- 💾 MySQL Database Integration
-- 🎨 Dynamic UI using Thymeleaf
+### 🧾 Menu Management
+- Add, edit, delete menu items
+- Dynamic UI display using Thymeleaf
+
+### 🛒 Order Processing
+- Multi-item order creation
+- Quantity-based calculation
+- Automatic total price calculation
+
+### 📊 Order Details
+- Item-wise breakdown
+- Subtotal calculation
+
+### 🔄 Order Status Workflow
+- Pending → Preparing → Completed
+- Real-time status updates
+
+### 🧩 Database Design
+- One-to-Many (Order → OrderItems)
+- Many-to-One (OrderItem → MenuItem)
 
 ---
 
@@ -28,33 +49,27 @@ A full-stack web application built using Spring Boot to manage restaurant operat
 
 ---
 
-## 🧠 Key Learning
+## 📸 Screenshots
 
-- Implemented JPA relationships (Order ↔ OrderItems)
-- Handled real-time debugging (500 errors, mapping issues)
-- Built dynamic forms with list binding
-- Designed database schema and relationships
+### 🍽 Menu Page
+![Menu](screenshots/menu-page.png)
+
+### 🛒 Place Order
+![Order](screenshots/place-order.png)
+
+### 📋 Orders List
+![Orders](screenshots/orders-list.png)
+
+### 📊 Order Details
+![Details](screenshots/order-details.png)
+
+### 🔄 Status Update
+![Status](screenshots/status-update.png)
 
 ---
 
 ## ▶️ How to Run
 
-1. Clone the repository
-2. Create MySQL database: `caravan_menu`
-3. Update `application.properties`
-4. Run Spring Boot application
-5. Open browser: `http://localhost:8080/menu`
-
----
-
-## 📸 Screenshots (Add later)
-
-- Menu Page
-- Order Page
-- Order Details Page
-
----
-
-## 👨‍💻 Author
-
-Karthick Raja
+```bash
+git clone https://github.com/karthickraja3996/caravan-restaurant-management.git
+cd caravan-restaurant-management

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Place Order</title>
+</head>
+<body>
+    <h1>Place Order</h1>
+
+    <form th:action="@{/place-order}" method="post">
+
+        <label>Customer Name: </label>
+        <input type="text" name="customerName" placeholder="Customer Name" required>
+
+        <br>
+        <br>
+        <div th:if="${#lists.isEmpty(menuItems)}">
+            no menu items available
+        </div>
+
+        <div th:each="item : ${menuItems}" style="margin-bottom: 10px;">
+            <div th:if="${item.availability}">
+            <span th:text="${item.name}"></span>
+            ₹ <span th:text="${#numbers.formatDecimal(item.price,1,2)}"></span>
+
+            <input type="number" name="quantity" min="0" max="10" value="0">
+            <input type="hidden" name="menuItemId" th:value="${item.id}">
+            <br><br>
+
+        </div>
+        </div>
+
+        <button type="submit">Place Order</button>
+
+
+    </form>
+</body>
+</html>

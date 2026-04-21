@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Order</title>
+</head>
+
+<body>
+<h1>All Orders</h1>
+<table border="1">
+
+    <tr>
+        <th>ID</th>
+        <th>Customer Name</th>
+        <th>Order Date</th>
+        <th>Status</th>
+        <th>Action</th>
+        <th>Total Amount</th>
+    </tr>
+
+    <tr th:each="order : ${orders}">
+
+    <td th:text="${order.id}"></td>
+    <td th:text="${order.customerName}"></td>
+    <td th:text="${order.orderDate}"></td>
+
+    <!-- ✅ STATUS COLUMN WITH COLOR -->
+    <td th:text="${order.status}"
+        th:style="${order.status.equals('Completed')} ? 'color:green' :
+                  (${order.status.equals('Preparing')} ? 'color:orange' : 'color:red')">
+    </td>
+
+    <!-- ✅ ACTION COLUMN -->
+    <td>
+        <span th:if="${order.status.equals('Completed')}">Done</span>
+
+        <a th:if="${!order.status.equals('Completed')}"
+           th:href="@{'/update-status/' + ${order.id}}">
+           Next Status
+        </a>
+    </td>
+
+    <td th:text="${order.totalAmount}"></td>
+
+    <td>
+        <a th:href="@{'/order-details/' + ${order.id}}">
+            View order details
+        </a>
+    </td>
+
+</tr>
+
+
+</table>
+
+</body>
+</html>

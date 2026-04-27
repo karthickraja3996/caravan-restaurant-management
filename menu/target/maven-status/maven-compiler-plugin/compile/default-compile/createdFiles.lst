@@ -1,0 +1,11 @@
+com\caravan\menu\controller\OrderController.class
+com\caravan\menu\configuration\SecurityConfig.class
+com\caravan\menu\model\Order.class
+com\caravan\menu\model\OrderItem.class
+com\caravan\menu\model\MenuItem.class
+com\caravan\menu\service\MenuService.class
+com\caravan\menu\MenuApplication.class
+com\caravan\menu\repository\OrderRepository.class
+com\caravan\menu\service\OrderService.class
+com\caravan\menu\repository\MenuRepository.class
+com\caravan\menu\controller\MenuController.class

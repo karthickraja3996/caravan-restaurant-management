@@ -6,6 +6,22 @@
 
 <body>
 <h1>All Orders</h1>
+
+<form style="margin-bottom: 20px;" action="/orders" method="get">
+
+    <input type="text" name="customerName" placeholder="search by customer" th:value="${customerName}">
+
+    <select name="status">
+        <option value="">All Status</option>
+        <option value="Pending" th:selected="${status=='Pending'}">Pending</option>
+        <option value="Preparing" th:selected="${status=='Preparing'}">Preparing</option>
+        <option value="Completed" th:selected="${status=='Completed'}">Completed</option>
+    </select>
+    <button type="submit">Search</button>
+
+</form>
+
+
 <table border="1">
 
     <tr>
@@ -15,6 +31,8 @@
         <th>Status</th>
         <th>Action</th>
         <th>Total Amount</th>
+        <th>Order Details</th>
+        <th>Invoice</th>
     </tr>
 
     <tr th:each="order : ${orders}">
@@ -46,7 +64,7 @@
             View order details
         </a>
     </td>
-
+    <td><a th:href="@{'/invoice/'+${order.id}}">View Invoice</a></td>
 </tr>
 
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>dashboard</title>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+    }
+    .container{
+        display: flex;
+        gap: 20px;
+    }
+    .card{
+        flex: 1;
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        
+    }
+.total { background: #3498db; }
+        .pending { background: #e74c3c; }
+        .completed { background: #2ecc71; }
+        .revenue { background: #9b59b6; }
+</style>
+
+
+</head>
+
+<body>
+<h1>dashboard</h1>
+
+<div class="container">
+   <div class="card total">
+    Total orders
+    <h2 th:text="${totalOrders}"></h2>
+   </div>
+</div>
+<div class="card pending">
+    Pending orders
+    <h2 th:text="${pendingOrders}"></h2>
+   </div>
+<div class="card completed">
+    Completed orders
+    <h2 th:text="${completedOrders}"></h2>
+   </div>
+   <div class="card revenue">
+    Total revenue
+    <h2><span th:text="${totalRevenue}"></span></h2>
+   </div>
+</body>
+</html>

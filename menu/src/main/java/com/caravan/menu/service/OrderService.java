@@ -25,4 +25,41 @@ public class OrderService {
 	public Order getOrderById(Long id) {
 		return orderRepository.findById(id).orElse(null);
 	}
+	
+	public List<Order> searchOrder(String customerName, String status){
+		
+		
+		if(customerName != null && !customerName.isEmpty() && status != null && !status.isEmpty()) {
+			return orderRepository.findByCustomerNameContainingIgnoreCaseAndStatus(customerName, status);
+		}
+		else if(customerName !=null && !customerName.isEmpty()) {
+			return orderRepository.findByCustomerNameContainingIgnoreCase(customerName);
+		}
+		
+		else if(status != null && !status.isEmpty()) {
+			return orderRepository.findByStatus(status);
+		}
+		
+		else {
+			return orderRepository.findAll();
+		}
+	}
+	
+	public long getTotalOrders() {
+		return orderRepository.count();
+	}
+	
+	public long getPendingOrders() {
+		return orderRepository.countByStatus("Pending");
+	}
+	
+	public long getCompletedOrders() {
+		return orderRepository.countByStatus("Completed");
+	}
+	
+	public double getTotalRevenue() {
+		Double revenue = orderRepository.getTotalRevenue();
+		return revenue != null ? revenue : 0 ;
+		
+	}
 }

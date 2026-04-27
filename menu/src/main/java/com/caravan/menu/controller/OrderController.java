@@ -43,8 +43,14 @@ public class OrderController {
 	}
 	
 	@GetMapping("/orders")
-	public String viewOrders(Model model) {
-		model.addAttribute("orders",orderService.getAllOrder());
+	public String viewOrders(@RequestParam(required = false) String customerName,@RequestParam(required=false) String status,Model model) {
+		
+		List<Order> orders = orderService.searchOrder(customerName, status); 
+		
+		model.addAttribute("orders",orders);
+		model.addAttribute("customerName", customerName);
+		model.addAttribute("status",status);
+		
 		return "orders";
 	}
 	@GetMapping("/menu-order")
@@ -122,6 +128,24 @@ public class OrderController {
 		
 		return "redirect:/orders";
 	}
+	
+	@GetMapping("/invoice/{id}")
+	public String viewInvoice(@PathVariable Long id,Model model) {
+		Order order = orderService.getOrderById(id);
+		model.addAttribute("order", order);
+		return "invoice";
+	}
+	
 
+
+@GetMapping("/dashboard")
+public String dashboard(Model model) {
+	model.addAttribute("totalOrders",orderService.getTotalOrders());
+	model.addAttribute("pendingOrders",orderService.getPendingOrders());
+	model.addAttribute("completedOrders",orderService.getCompletedOrders());
+	model.addAttribute("totalRevenue", orderService.getTotalRevenue());
+	
+	return "dashboard";
+}
 
 }

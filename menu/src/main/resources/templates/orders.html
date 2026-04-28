@@ -7,6 +7,14 @@
 <body>
 <h1>All Orders</h1>
 
+<nav>
+    <a href="/">Home</a> |
+    <a href="/menu">Menu</a> |
+    <a href="/orders">Orders</a> |
+    <a href="/add-menu">Add Menu</a> |
+    <a href="/logout">Logout</a>
+</nav>
+<hr>
 <form style="margin-bottom: 20px;" action="/orders" method="get">
 
     <input type="text" name="customerName" placeholder="search by customer" th:value="${customerName}">

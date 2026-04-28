@@ -6,7 +6,14 @@
 
 <body>
 <h1>Order Details</h1>
-
+<nav>
+    <a href="/">Home</a> |
+    <a href="/menu">Menu</a> |
+    <a href="/orders">Orders</a> |
+    <a href="/add-menu">Add Menu</a> |
+    <a href="/logout">Logout</a>
+</nav>
+<hr>
 <p><b>Customer Name: </b><span th:text="${order.customerName}"></span></p>
 <p><b>Date: </b><span th:text="${order.orderDate}"></span></p>
 <p><b>Status: </b><span th:text="${order.status}"></span></p>

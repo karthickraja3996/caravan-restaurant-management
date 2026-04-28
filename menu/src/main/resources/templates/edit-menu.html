@@ -36,6 +36,14 @@
 
 <body>
     <h1>Edit Menu Item</h1>
+    <nav>
+    <a href="/">Home</a> |
+    <a href="/menu">Menu</a> |
+    <a href="/orders">Orders</a> |
+    <a href="/add-menu">Add Menu</a> |
+    <a href="/logout">Logout</a>
+</nav>
+<hr>
     <form th:action="@{/update-menu}" th:object="${menuItem}" method="post">
 
         <input type="hidden" th:field="*{id}">

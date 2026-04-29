@@ -16,7 +16,7 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests(auth-> auth.requestMatchers("/").permitAll().requestMatchers("/add-menu").hasRole("ADMIN").requestMatchers("/orders").hasAnyRole("ADMIN","STAFF").anyRequest().authenticated()).formLogin(withDefaults()).logout(withDefaults());
+		http.authorizeHttpRequests(auth-> auth.requestMatchers("/").permitAll().requestMatchers("/add-menu").hasRole("ADMIN").requestMatchers("/orders").hasAnyRole("ADMIN","STAFF").anyRequest().authenticated()).formLogin(form-> form.defaultSuccessUrl("/menu",true)).logout(withDefaults());
 		
 		return http.build();
 	}

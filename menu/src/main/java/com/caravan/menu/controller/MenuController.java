@@ -18,11 +18,6 @@ public class MenuController {
 	private MenuService menuService;
 	
 	
-	@GetMapping("/")
-	public String home() {
-		return "home";
-	}
-	
 	@GetMapping("/menu")
 	public String viewMenu(Model model) {
 		

@@ -38,9 +38,12 @@
     <h1>Add Menu Item</h1>
     <nav>
     <a href="/">Home</a> |
-    <a href="/menu">Menu</a> |
-    <a href="/orders">Orders</a> |
-    <a href="/add-menu">Add Menu</a> |
+    <a href="/menu">Menu</a> |<div sec:authorize="hasRole('ADMIN','STAFF')">
+<a href="/orders">View Orders</a>|
+</div>
+<div sec:authorize="hasRole('ADMIN')">
+<a href="/add-menu">Add Menu Item</a>|
+</div>
     <a href="/logout">Logout</a>
 </nav>
 <hr>

@@ -9,8 +9,11 @@
 
 <a href="/menu">View Menu</a><br>
 <a href="/menu-order">Place Order</a><br>
+<div sec:authorize="hasRole('ADMIN','STAFF')">
 <a href="/orders">View Orders</a><br>
+</div>
+<div sec:authorize="hasRole('ADMIN')">
 <a href="/add-menu">Add Menu Item</a>
-
+</div>
 </body>
 </html>

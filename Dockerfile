@@ -6,6 +6,8 @@ COPY menu /app
 
 WORKDIR /app
 
+RUN chmod +x mvnw
+
 RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8080

@@ -9,7 +9,7 @@
 
 <a href="/menu">View Menu</a><br>
 <a href="/menu-order">Place Order</a><br>
-<div sec:authorize="hasRole('ADMIN','STAFF')">
+<div sec:authorize="hasAnyRole('ADMIN','STAFF')">
 <a href="/orders">View Orders</a><br>
 </div>
 <div sec:authorize="hasRole('ADMIN')">

@@ -34,7 +34,7 @@
 <nav>
     <a href="/">Home</a> |
     <a href="/menu">Menu</a> |
-<div sec:authorize="hasRole('ADMIN','STAFF')">
+<div sec:authorize="hasAnyRole('ADMIN','STAFF')">
 <a href="/orders">View Orders</a>|
 </div>
 <div sec:authorize="hasRole('ADMIN')">
